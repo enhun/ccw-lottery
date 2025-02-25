@@ -3,15 +3,22 @@ const drawBtn = document.getElementById("draw-btn");
 const result = document.getElementById("result");
 const bgMusic = document.getElementById("bg-music");
 
-bgMusic.play(); // 自動播放背景音樂
-
 let availableCells = Array.from(cells); // 儲存尚未抽中的格子
+let isFirstClick = true; // 標記是否第一次點擊
 
 drawBtn.addEventListener("click", () => {
     if (availableCells.length === 0) {
         result.textContent = "所有獎品都已抽完！";
         drawBtn.disabled = true;
         return;
+    }
+
+    // 第一次點擊時播放音樂
+    if (isFirstClick) {
+        bgMusic.play().catch(error => {
+            console.log("音樂播放失敗:", error);
+        });
+        isFirstClick = false;
     }
 
     result.textContent = "抽獎中...";

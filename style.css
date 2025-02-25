@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('assets/temple-bg.jpg'); /* 日式廟會背景圖 */
+    background-image: url('assets/temple-bg.jpg');
     background-size: cover;
 }
 
@@ -35,16 +35,29 @@ h1 {
 .cell {
     width: 100px;
     height: 100px;
-    background: url('assets/cat.png') no-repeat center; /* 貓咪圖片 */
-    background-size: 80%;
+    background: url('assets/cat.png') no-repeat center;
+    background-size: 50%;
     border: 2px solid #d94848;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
     cursor: pointer;
 }
 
 .cell.active {
     background-color: #ffd700;
     border-color: #ff4500;
+}
+
+.cell.drawn {
+    background-color: #cccccc;
+    border-color: #999999;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 #draw-btn {
